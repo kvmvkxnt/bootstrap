@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -16,8 +17,8 @@
             <div class="container">
                 <div class="catalog__inner text-center">
                     <h1 class="mb-3">Movies catalog</h1>
-                    <div class="row">
-                        <div class="col-md-3 mb-5">
+                    <div class="row row-cols-md-1">
+                        <div class="mb-5 col-md-6 col-lg-4">
                             <form action="https://echo.htmlacademy.ru/" class="mb-3">
                                 <input type="text" name="search" class="form-control mb-3 text-secondary"
                                     placeholder="Search...">
@@ -60,13 +61,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-9 text-start  align-items-center">
+                        <div class="col-md-6 col-lg-8 text-start align-items-center">
                             <h5>Search results: 39</h5>
                             <div class="alert alert-info" role="alert">
                                 Use form on the left to search for a movie
                             </div>
-                            <div class="row row-cols-auto g-md-4 align-items-center mb-5">
-                                <div class="col-6">
+                            <div class="row row-cols-auto row-cols-md-1 row-cols-lg-2 g-md-4 row-cols-xs-1 align-items-center mb-5">
+                                <div class="col-12 mb-3">
                                     <div class="card">
                                         <img src="https://via.placeholder.com/300x160" width="469" height="250">
                                         <div class="card-body">
@@ -87,7 +88,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 mb-3">
                                     <div class="card">
                                         <img src="https://via.placeholder.com/300x160" width="469" height="250">
                                         <div class="card-body">
@@ -109,7 +110,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="btn-group justify-content-center" role="group" aria-label="Basic outlined example">
+                            <div class="btn-group align-items-center" role="group" aria-label="Basic outlined example">
                                 <button type="button" class="btn btn-outline-primary active">1</button>
                                 <button type="button" class="btn btn-outline-primary">2</button>
                                 <button type="button" class="btn btn-outline-primary">3</button>
