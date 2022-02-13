@@ -24,7 +24,7 @@
                                     placeholder="Search...">
                                 <select name="select" class="search__genre form-select mb-3"
                                     aria-label="Default select example" aria-placeholder="all">
-                                    <option name="All" selected>All</option>
+                                    <option value="All">All</option>
                                 </select>
                                 <input type="submit" value="Search" class="btn btn-group-lg btn-primary col-12">
                             </form>
@@ -39,13 +39,20 @@
                                 <input type="submit" value="Add" class="btn btn-group-lg btn-primary col-12">
                             </form>
 
-                            <div class="filter__controls">
+                            <div class="filter__controls mb-3">
                                 <select class="search__genre form-select" id="films_sort">
                                     <option value="A-Z">A-Z</option>
                                     <option value="Z-A">Z-A</option>
                                     <option value="O-N">OLD-NEW</option>
                                     <option value="N-O">NEW-OLD</option>
                                 </select>
+                            </div>
+
+                            <button class="btn btn-dark w-100 mb-3" id="reset">Reset</button>
+
+                            <h2 class="bookmark__title h2" style="display: none;">Bookmarked</h2>
+                            <div class="bookmarked row row-cols-1">
+                                
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-8 text-start align-items-center">
@@ -56,11 +63,12 @@
                             <div class="films__list row row-cols-auto row-cols-md-1 row-cols-lg-2 g-md-4 row-cols-xs-1 align-items-center mb-5">
                                 
                             </div>
-                            <div class="btn-group align-items-center" role="group" aria-label="Basic outlined example">
-                                <button type="button" class="btn btn-outline-primary active">1</button>
-                                <button type="button" class="btn btn-outline-primary">2</button>
-                                <button type="button" class="btn btn-outline-primary">3</button>
-                                <button type="button" class="btn btn-outline-primary">4</button>
+                            <div class="page__buttons btn-group align-items-center" role="group" aria-label="Basic outlined example">
+                                <button type="button" value="1" id="page1" class="btn btn-outline-primary active">1</button>
+                                <button type="button" value="2" id="page2" class="btn btn-outline-primary">2</button>
+                                <button type="button" value="3" id="page3" class="btn btn-outline-primary">3</button>
+                                <button type="button" value="4" id="page4" class="btn btn-outline-primary">4</button>
+                                <button type="button" value="5" id="page5" class="btn btn-outline-primary">5</button>
                             </div>
                         </div>
                     </div>
@@ -82,10 +90,24 @@
                         <i class="bi bi-star-fill text-warning me-1"></i>
                     </p>
                     <p class="genres__list card-text h6"></p>
+                    <div class="film__buttons">
+                        <button class="films__bookmark btn btn-outline-success">Bookmark</button>
+                        <button class="films__info btn btn-outline-primary">More info</button>
+                        <button class="films__remove btn btn-outline-danger">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>
     </template>
+
+    <template class="bookmark-item-template">
+        <div class="col border rounded-1 p-2 d-flex flex-column bookmarked__film mb-2">
+            <h2 class="bookmark__title h3 align-self-start"></h2>
+            <button class="btn btn-danger align-self-end bookmark__button">Remove</button>
+        </div>
+    </template>
+    <script src="./js/default.js"></script>
+    <script src="./js/utils.js"></script>
     <script src="./js/films.js"></script>
     <script src="./js/main.js"></script>
 </body>
