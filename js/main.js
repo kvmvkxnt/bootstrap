@@ -10,6 +10,8 @@ const pgButtons = findElement('.page__buttons');
 const bookmarkedList = findElement('.bookmarked');
 const elBookmarkTemplate = findElement('.bookmark-item-template').content;
 const resetBtn = findElement('#reset');
+const btnTemplate = findElement('.button-template').content;
+let currenFilms;
 
 // let searchOptions = JSON.parse(window.localStorage.getItem('searchOptions')) || ['none', 'all'];
 
@@ -61,12 +63,16 @@ const handleSort = () => {
 
     if (sortValue == 'A-Z') {
         renderFilms(sortFilmsByTitle(films));
+        currenFilms = sortFilmsByTitle(films);
     } else if (sortValue == 'Z-A') {
         renderFilms(sortFilmsByTitle(films).reverse());
+        currenFilms = sortFilmsByTitle(films).reverse();
     } else if (sortValue == 'O-N') {
         renderFilms(sortFilmsByRelease(films));
+        currentFilms = sortFilmsByRelease(films);
     } else if (sortValue == 'N-O') {
         renderFilms(sortFilmsByRelease(films).reverse());
+        currentFilms = sortFilmsByRelease(films).reverse();
     }
 }
 
@@ -126,6 +132,8 @@ const removeFilm = (id) => {
         window.localStorage.setItem('bookmarked', JSON.stringify(bookmarkedFilms));
         renderBookmarked(bookmarkedFilms);
     }
+
+    currenFilms = films;
 }
 
 const showInfo = (id) => {
@@ -197,14 +205,18 @@ const handleSearch = (evt) => {
 
     if (searchGenre == 'All') {
         const filtered = films.filter((film) => film.title.match(regex));
+        currenFilms = filtered;
         renderFilms(filtered);
     } else if (searchGenre == 'All' && searchTitle == null) {
+        currenFilms = films;
         renderFilms(films);
     } else if (searchTitle == null) {
         const filtered = films.filter((film) => film.genres.includes(searchGenre));
+        currenFilms = filtered;
         renderFilms(filtered);
     } else {
         const filtered = films.filter((film) => film.title.match(regex) && film.genres.includes(searchGenre));
+        currenFilms = filtered;
         renderFilms(filtered);
     }
 }
@@ -233,6 +245,7 @@ const renderFilms = (db) => {
     list.appendChild(filmsFragment);
 
     searchResult.textContent = 'Search results: ' + db.length;
+    renderPages(db);
 }
 
 const handleReset = () => {
@@ -306,3 +319,4 @@ elSortSelect.addEventListener('change', handleSort);
 bookmarkedList.addEventListener('click', handleDeleteBookmark);
 list.addEventListener('click', handleList);
 resetBtn.addEventListener('click', handleReset);
+// pgButtons.addEventListener('click', handlePages);
