@@ -245,7 +245,6 @@ const renderFilms = (db) => {
     list.appendChild(filmsFragment);
 
     searchResult.textContent = 'Search results: ' + db.length;
-    renderPages(db);
 }
 
 const handleReset = () => {
